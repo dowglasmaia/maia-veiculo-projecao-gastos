@@ -1,8 +1,7 @@
 package com.maia.apiveiculos.controller;
 
-
-
 import java.net.URI;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -37,12 +36,19 @@ public class VeiculoController {
 		return ResponseEntity.ok().body(dto);
 	}
 
+	@GetMapping(produces = { "application/json", "application/xml" })
+	public ResponseEntity<List<VeiculoDTO>> findAll() {
+		List<VeiculoDTO> dto = veiculoServices.listarTodos();
+		return ResponseEntity.ok().body(dto);
+	}
+
 	@PostMapping(produces = { "application/json", "application/xml" }, consumes = { "application/json",
 			"application/xml", })
 	public ResponseEntity<Void> create(@Valid @RequestBody VeiculoNewDTO dto) {
 		VeiculoNewDTO veiculo = veiculoServices.salvar(dto);
 
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(veiculo.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(veiculo.getId())
+				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
 

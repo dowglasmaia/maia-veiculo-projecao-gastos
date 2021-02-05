@@ -1,0 +1,23 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    
+spring:
+  application:
+    name: api-veiculos
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect  
+#     org.hibernate.dialect.MySQL5Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/veiculodb?createDatabaseIfNotExist=true&allowPublicKeyRetieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=America/Sao_Paulo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
