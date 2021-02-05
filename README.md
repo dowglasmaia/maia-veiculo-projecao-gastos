@@ -60,7 +60,7 @@ method: GET
 
 # 
 
-## Payload para requisitar Previsão de Gastos:
+## Payload para requisitar Projeção de Gastos:
 * endpoint:  /api/v1/previsoes-gastos
 * method: POST
 ```
@@ -71,7 +71,7 @@ method: GET
 }
  ```
  #
- #### Payload do Resposta da requisição de Previsão de Gastos .
+ #### Payload do Resposta da requisição de Projeção de Gastos .
  
  ```
  [
@@ -90,7 +90,7 @@ method: GET
  ```
 
 #
-## Regra para Calculo da Previsão de Gastos.
+## Regra para Calculo da Projeção de Gastos.
 ```Regra
 
         --------------------------------
