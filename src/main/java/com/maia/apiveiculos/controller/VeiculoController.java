@@ -4,6 +4,8 @@ package com.maia.apiveiculos.controller;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +39,7 @@ public class VeiculoController {
 
 	@PostMapping(produces = { "application/json", "application/xml" }, consumes = { "application/json",
 			"application/xml", })
-	public ResponseEntity<Void> create(@RequestBody VeiculoNewDTO dto) {
+	public ResponseEntity<Void> create(@Valid @RequestBody VeiculoNewDTO dto) {
 		VeiculoNewDTO veiculo = veiculoServices.salvar(dto);
 
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(veiculo.getId()).toUri();
