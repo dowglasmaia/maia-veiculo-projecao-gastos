@@ -1,4 +1,4 @@
-package com.maia.apiveiculos.entity.dto;
+package com.maia.apiprojecaogastos.entity.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package com.maia.apiveiculos.controller;
+package com.maia.apiprojecaogastos.controller;
 
 import java.util.Set;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maia.apiveiculos.entity.dto.DadosPrevisoesNewDTO;
-import com.maia.apiveiculos.entity.dto.VeiculoComPrevisaoDeGastoDTO;
-import com.maia.apiveiculos.service.IPrevisaoDeGastosServices;
+import com.maia.apiprojecaogastos.DadosPrevisoesNewDTO;
+import com.maia.apiprojecaogastos.VeiculoComPrevisaoDeGastoDTO;
+import com.maia.apiprojecaogastos.service.IPrevisaoDeGastosServices;
 
 @RestController
 @RequestMapping("/api/v1/previsoes-gastos")

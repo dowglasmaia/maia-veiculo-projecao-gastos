@@ -1,12 +1,12 @@
-package com.maia.apiveiculos.service;
+package com.maia.apiprojecaogastos.service;
 
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.maia.apiveiculos.entity.dto.DadosPrevisoesNewDTO;
-import com.maia.apiveiculos.entity.dto.VeiculoComPrevisaoDeGastoDTO;
+import com.maia.apiprojecaogastos.DadosPrevisoesNewDTO;
+import com.maia.apiprojecaogastos.VeiculoComPrevisaoDeGastoDTO;
 
 @Service
 public interface IPrevisaoDeGastosServices {
