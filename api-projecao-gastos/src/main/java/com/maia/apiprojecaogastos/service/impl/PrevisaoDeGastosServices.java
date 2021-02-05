@@ -1,48 +1,45 @@
-package com.maia.apiveiculos.service.impl;
+package com.maia.apiprojecaogastos.service.impl;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.maia.apiveiculos.entity.Veiculo;
-import com.maia.apiveiculos.entity.dto.DadosPrevisoesNewDTO;
-import com.maia.apiveiculos.entity.dto.VeiculoComPrevisaoDeGastoDTO;
-import com.maia.apiveiculos.entity.dto.VeiculoDTO;
-import com.maia.apiveiculos.repository.IVeiculoRepository;
-import com.maia.apiveiculos.service.IPrevisaoDeGastosServices;
+import com.maia.apiprojecaogastos.entity.dto.DadosPrevisoesNewDTO;
+import com.maia.apiprojecaogastos.entity.dto.VeiculoComPrevisaoDeGastoDTO;
+import com.maia.apiprojecaogastos.entity.dto.VeiculoDTO;
+import com.maia.apiprojecaogastos.service.IPrevisaoDeGastosServices;
+import com.maia.apiprojecaogastos.service.IWokerFeignClient;
+
 
 @Service
 public class PrevisaoDeGastosServices implements IPrevisaoDeGastosServices {
 
-	private final IVeiculoRepository veiculoRepository;
+	private final IWokerFeignClient wokerFeignClient; 
 
 	@Autowired
-	public PrevisaoDeGastosServices(IVeiculoRepository veiculoRepository) {
-		this.veiculoRepository = veiculoRepository;
+	public PrevisaoDeGastosServices(IWokerFeignClient wokerFeignClient) {
+		this.wokerFeignClient = wokerFeignClient;
 	}
 
 	@Override
 	public Set<VeiculoComPrevisaoDeGastoDTO> obterPrevisoesDeGastosPorVeiculo(DadosPrevisoesNewDTO dto) {
-		List<Veiculo> veiculos = veiculoRepository.findAll();
+		
+		var veiculos = wokerFeignClient.obterTodosOsVeiculos().getBody();
 
 		Set<VeiculoComPrevisaoDeGastoDTO> result = new HashSet<>();
 		if (!veiculos.isEmpty()) {
 			veiculos.forEach(v -> {
-				VeiculoDTO veiculo = VeiculoDTO.createVeiculoDTOToVeiculo(v);
-
 				VeiculoComPrevisaoDeGastoDTO veiculoResult = new VeiculoComPrevisaoDeGastoDTO( 
 						v.getId(), 
 						v.getNome(),
 						v.getMarca(), 
 						v.getModelo(), 
 						v.getDataDeFabricacao().getYear(),
-						obterQuantidadeDeCombustivelGasto(veiculo, dto), 
-						this.obterValorTotalGastoComCombustivel(veiculo, dto));
+						obterQuantidadeDeCombustivelGasto(v, dto), 
+						this.obterValorTotalGastoComCombustivel(v, dto));
 
 				result.add(veiculoResult);
 			});

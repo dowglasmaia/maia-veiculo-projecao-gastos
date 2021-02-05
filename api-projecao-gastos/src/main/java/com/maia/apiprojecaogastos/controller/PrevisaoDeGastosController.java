@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maia.apiprojecaogastos.DadosPrevisoesNewDTO;
-import com.maia.apiprojecaogastos.VeiculoComPrevisaoDeGastoDTO;
+import com.maia.apiprojecaogastos.entity.dto.DadosPrevisoesNewDTO;
+import com.maia.apiprojecaogastos.entity.dto.VeiculoComPrevisaoDeGastoDTO;
 import com.maia.apiprojecaogastos.service.IPrevisaoDeGastosServices;
+
+
+
 
 @RestController
 @RequestMapping("/api/v1/previsoes-gastos")

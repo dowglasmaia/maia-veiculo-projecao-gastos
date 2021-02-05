@@ -1,21 +1,38 @@
-## API REST - CADASTRO DE VEICULOS & PREVISÃO DE GASTOS.
+## APIs - CADASTRO DE VEICULOS & PROJEÇÃO DE GASTOS.
 #
 ### Dowglas Maia: dowglasmaia@live.com
 ### Linkedin: www.linkedin.com/in/dowglasmaia
 
+```comunicação ente apis
+01 -API: api-veiculos 
+porta: 8081
+---------------------
+02 -API: api-projecao-gastos 
+porta: 8082
+```
 #
 ### Tecnologias utilizadas no desenvolvimento:
 ```
-Linguagem de Programação: Java 11.
-Framework: Spring Boot - 2.3.8.RELEASE
-Banco de Dados: MySQL
-Gerenciador de Dependencias: Maven.
+* Linguagem de Programação: Java 11.
+* Framework: Spring Boot - 2.3.8.RELEASE
+* Banco de Dados: MySQL
+* Gerenciador de Dependencias: Maven.
+* Validação de Dados: Bean Validation
+* Comunicação entre APIs: FeignClient
 ```
-
+#
+#### Testes:
+```
+01. Realizar o build e em seguida deploy  da API - api-veiculos
+02. Realizar o build e em seguida deploy da API - api-projecao-gastos
+03. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
+```
+#
 ### Documentação da API em Swagger.
-´ para acessar a documentção via Swagger siga o exemplo: servidor/swagger-ui.html#/ ´ 
+´ como acessar a documentação via Swagger: { servidor:porta/swagger-ui.html#/ }´ 
 ```Teste de API
-exemplo: http://localhost:8080/swagger-ui.html#/
+exemplo 1: http://localhost:8081/swagger-ui.html#/
+exemplo 2: http://localhost:8082/swagger-ui.html#/
 ```
 #
 ## Payload para cadastro de Veiculo:
