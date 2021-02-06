@@ -15,7 +15,7 @@ porta: 8082
 ```
 * Linguagem de Programação: Java 11.
 * Framework: Spring Boot - 2.3.8.RELEASE
-* Banco de Dados: MySQL
+* Banco de Dados: MySQL - v:8
 * Gerenciador de Dependencias: Maven.
 * Validação de Dados: Bean Validation
 * Comunicação entre APIs: FeignClient
@@ -25,6 +25,14 @@ porta: 8082
 ```
 01. Realizar o download das apis encontrados na 'Releases' aqui no github, ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
 02. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
+
+Obs.: As configurações para conexão com o banco de dados base de dados, são:
+- banco de dados: MySQL8
+- porta: 3306
+- username: root
+- password: root
+- nome da base: veiculodb
+* Para rodar a api que estar disponivel para download no github, é necessário usar estas configurações.
 ```
 #
 ### Documentação da API em Swagger.
