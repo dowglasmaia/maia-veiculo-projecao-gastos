@@ -90,7 +90,7 @@ ex.: localhost:8082/api/v1/projecao-gastos?precoLitroGasolina=5.5&totalDeKmPerco
  ```
 
 #
-## Regra para Calculo da Projeção de Gastos.
+## Regra para Cálculo da Projeção de Gastos.
 ```Regra
 
         --------------------------------
