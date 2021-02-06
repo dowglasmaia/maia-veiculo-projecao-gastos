@@ -1,4 +1,6 @@
 ## APIs - CADASTRO DE VEICULOS & PROJEÇÃO DE GASTOS.
+### Documentação da API em Swagger.
+* como acessar a documentação via Swagger: { servidor:porta/swagger-ui.html#/ }
 #
 ### Dowglas Maia: dowglasmaia@live.com
 ### Linkedin: www.linkedin.com/in/dowglasmaia
@@ -26,19 +28,15 @@ porta: 8082
 01. Realizar o download das apis encontrados na 'Releases' aqui no github, ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
 02. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
 
+- exemplo 1: http://localhost:8081/swagger-ui.html#/
+- exemplo 2: http://localhost:8082/swagger-ui.html#/
+
 Obs.: As configurações para conexão com o Banco de Dados MySQL8, são:
 - porta: 3306
 - username: root
 - password: root
 - nome da base: veiculodb
 * Para rodar a api que estar disponivel para download no github, é necessário usar estas configurações.
-```
-#
-### Documentação da API em Swagger.
-´ como acessar a documentação via Swagger: { servidor:porta/swagger-ui.html#/ }´ 
-```Teste de API
-exemplo 1: http://localhost:8081/swagger-ui.html#/
-exemplo 2: http://localhost:8082/swagger-ui.html#/
 ```
 #
 ## Payload para cadastro de Veiculo:
