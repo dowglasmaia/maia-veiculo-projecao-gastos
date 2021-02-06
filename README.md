@@ -26,8 +26,7 @@ porta: 8082
 01. Realizar o download das apis encontrados na 'Releases' aqui no github, ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
 02. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
 
-Obs.: As configurações para conexão com o banco de dados base de dados, são:
-- banco de dados: MySQL8
+Obs.: As configurações para conexão com o Banco de Dados MySQL8, são:
 - porta: 3306
 - username: root
 - password: root
