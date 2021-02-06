@@ -23,9 +23,8 @@ porta: 8082
 #
 #### Testes:
 ```
-01. Realizar o build e em seguida deploy  da API - api-veiculos
-02. Realizar o build e em seguida deploy da API - api-projecao-gastos
-03. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
+01. Realizar o download das apis encontrados na 'Releases' ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
+02. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
 ```
 #
 ### Documentação da API em Swagger.
