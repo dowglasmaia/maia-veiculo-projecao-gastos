@@ -23,7 +23,7 @@ porta: 8082
 #
 #### Testes:
 ```
-01. Realizar o download das apis encontrados na 'Releases' ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
+01. Realizar o download das apis encontrados na 'Releases' aqui no github, ou realizar o download dos fontes, e em seguida o build e deploy das APIs - api-veiculos e api-projecao-gastos;
 02. Realiar as requisições Utilzando uma ferramenta de teste de API REST, ou Através do swagger-ui, conforme exemplo abaixo.
 ```
 #
