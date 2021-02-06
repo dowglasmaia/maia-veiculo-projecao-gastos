@@ -66,12 +66,12 @@ method: GET
 
 ## Payload para requisitar Projeção de Gastos:
 * endpoint:  /api/v1/projecao-gastos
-* method: POST
+* method: GET
 ```
 * parâmetros:
-  precoLitroGasolina":5.60,
-  totalDeKmPercorridoNaCidade":50, 
-  totalDeKmPercorridoNaRodovia":150
+  precoLitroGasolina":Double,
+  totalDeKmPercorridoNaCidade":Integer, 
+  totalDeKmPercorridoNaRodovia":Integer
 
 ex.: localhost:8082/api/v1/projecao-gastos?precoLitroGasolina=5.5&totalDeKmPercorridoNaCidade=20&totalDeKmPercorridoNaRodovia=200
  ```
