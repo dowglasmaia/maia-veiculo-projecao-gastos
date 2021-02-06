@@ -91,7 +91,7 @@ ex.: localhost:8082/api/v1/projecao-gastos?precoLitroGasolina=5.5&totalDeKmPerco
   }
  ...
 ]
- Obs: A Resposta retorna uma Lista com todos os veiculos, e as previsões de gastos de acordo com o consume de cada Veiculo.
+ Obs: A Resposta da requisição retorna uma Lista com todos os veiculos, e as previsões de gastos de cada Veiculo de acordo com seu o consumo de combustível. 
  ```
 
 #
