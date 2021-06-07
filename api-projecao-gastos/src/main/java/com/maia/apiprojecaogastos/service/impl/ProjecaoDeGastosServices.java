@@ -50,6 +50,11 @@ public class ProjecaoDeGastosServices implements IProjecaoDeGastosServices {
 		return result;
 	}
 
+	@Override
+	public VeiculoDTO obterVeiculoPorId(Long id) {
+		return  wokerFeignClient.obterVeiculoPorId(id).getBody();
+	}
+
 	private int obterQuantidadeDeCombustivelGasto(VeiculoDTO veiculo, Integer totalDeKmPercorridoNaCidade, Integer totalDeKmPercorridoNaRodovia) {
 		var consumoMedioNaCidade = veiculo.getConsumoMedioDeCombustivelInCidade();
 		var consumoMedioNaRodovia = veiculo.getConsumoMedioDeCombustivelEmRodovia();
