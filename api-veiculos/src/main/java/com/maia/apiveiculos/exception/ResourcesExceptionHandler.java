@@ -1,37 +1,43 @@
 package com.maia.apiveiculos.exception;
 
-import java.util.Date;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @ControllerAdvice
-@RestController
-public class ResourcesExceptionHandler extends ResponseEntityExceptionHandler {
+public class ResourcesExceptionHandler {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
-	public final ResponseEntity<ExceptionResponse>handlerNotFoundException(Exception ex, WebRequest request){
-		ExceptionResponse exceptionResponse = new ExceptionResponse(
-										new Date(System.currentTimeMillis()),
-										ex.getMessage(),
-										request.getDescription(false));				
-					
-		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.NOT_FOUND);
+	public final ResponseEntity<ExceptionResponse>handlerNotFoundException(Exception ex, HttpServletRequest request){
+		ExceptionResponse notFoundExceptionResponse = ExceptionResponse.builder()
+				.message("Recurso não encontrado")
+				.path(request.getRequestURI())
+				.details(ex.getMessage())
+				.timestamp(new Date(System.currentTimeMillis()))
+				.build();
+		return ResponseEntity.status( HttpStatus.NOT_FOUND).body(notFoundExceptionResponse );
 	}
-	
-	@ExceptionHandler(ResourceValidationException.class)
-	public final ResponseEntity<ExceptionResponse>handlerValidationException(Exception ex, WebRequest request){
-		ExceptionResponse exceptionResponse = new ExceptionResponse(
-										new Date(System.currentTimeMillis()),
-										ex.getMessage(),
-										request.getDescription(false)												);				
-					
-		return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.NOT_FOUND);
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<ExceptionResponse> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
+		BindingResult bindingResult = e.getBindingResult();
+		ValidationFieldError erros = new ValidationFieldError(
+				new Date(System.currentTimeMillis()),
+				"Erro de Validação",
+				e.getMessage(),
+				request.getRequestURI()
+		);
+		e.getBindingResult().getFieldErrors().forEach( err -> {
+			erros.addError(err.getField(),err.getDefaultMessage());
+		});
+		return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(erros);
 	}
 
 }

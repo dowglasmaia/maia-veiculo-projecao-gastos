@@ -42,10 +42,10 @@ public class VeiculoNewDTO implements Serializable {
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dataDeFabricacao;
 
-	@NotNull(message = "o campo consumo médio de combustível dentro da cidade é requerido.")
+	//@NotNull(message = "o campo consumo médio de combustível dentro da cidade é requerido.")
 	private int consumoMedioDeCombustivelInCidade;
 
-	@NotNull(message = "o campo consumo médio de combustível em rodovia  é requerido.")
+	//@NotNull(message = "o campo consumo médio de combustível em rodovia  é requerido.")
 	private int consumoMedioDeCombustivelEmRodovia;
 
 	public static VeiculoNewDTO createVeiculoNewDTOToVeiculo(Veiculo obj) {

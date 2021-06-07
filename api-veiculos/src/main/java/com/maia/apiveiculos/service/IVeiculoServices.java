@@ -1,6 +1,7 @@
 package com.maia.apiveiculos.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ public interface IVeiculoServices {
 	VeiculoNewDTO salvar(VeiculoNewDTO dto);
 
 	@Transactional(readOnly = true)
-	VeiculoDTO buscarPorId(Long id);
+	Optional<VeiculoDTO> buscarPorId(Long id);
 
 	@Transactional(readOnly = true)
 	List<VeiculoDTO> listarTodos();

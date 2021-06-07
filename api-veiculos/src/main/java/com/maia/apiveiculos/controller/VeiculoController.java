@@ -32,7 +32,7 @@ public class VeiculoController {
 
 	@GetMapping(value = "/{id}", produces = { "application/json", "application/xml" })
 	public ResponseEntity<VeiculoDTO> findById(@PathVariable("id") Long id) {
-		VeiculoDTO dto = veiculoServices.buscarPorId(id);
+		VeiculoDTO dto = veiculoServices.buscarPorId(id).get();
 		return ResponseEntity.ok().body(dto);
 	}
 

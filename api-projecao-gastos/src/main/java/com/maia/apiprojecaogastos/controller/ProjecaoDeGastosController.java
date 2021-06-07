@@ -2,12 +2,10 @@ package com.maia.apiprojecaogastos.controller;
 
 import java.util.Set;
 
+import com.maia.apiprojecaogastos.entity.dto.VeiculoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.maia.apiprojecaogastos.entity.dto.VeiculoComProjecaoDeGastoDTO;
 import com.maia.apiprojecaogastos.service.IProjecaoDeGastosServices;
@@ -36,5 +34,13 @@ public class ProjecaoDeGastosController {
 
 		return ResponseEntity.ok().body(resultadoProgecao);
 	}
+
+	@GetMapping(value = "/{id}", produces = { "application/json" })
+	public ResponseEntity<VeiculoDTO> obterVeiculo(@PathVariable Long id){
+		var VeiculoDTO  = previsaoGastosServices.obterVeiculoPorId(id);
+
+		return ResponseEntity.ok().body(VeiculoDTO);
+	}
+
 
 }
