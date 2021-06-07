@@ -16,13 +16,13 @@ public class ResourcesExceptionHandler {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public final ResponseEntity<ExceptionResponse>handlerNotFoundException(Exception ex, HttpServletRequest request){
-		ExceptionResponse exceptionResponse = ExceptionResponse.builder()
+		ExceptionResponse notFoundExceptionResponse = ExceptionResponse.builder()
 				.message("Recurso não encontrado")
 				.path(request.getRequestURI())
 				.details(ex.getMessage())
 				.timestamp(new Date(System.currentTimeMillis()))
 				.build();
-		return ResponseEntity.status( HttpStatus.NOT_FOUND).body(exceptionResponse );
+		return ResponseEntity.status( HttpStatus.NOT_FOUND).body(notFoundExceptionResponse );
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

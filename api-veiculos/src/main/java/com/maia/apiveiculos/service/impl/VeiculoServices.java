@@ -1,6 +1,7 @@
 package com.maia.apiveiculos.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -50,9 +51,9 @@ public class VeiculoServices implements IVeiculoServices {
 	}
 
 	@Override
-	public VeiculoDTO buscarPorId(Long id) {
-		return VeiculoDTO.createVeiculoDTOToVeiculo(repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Veiculo não encotrado para o ID: " + id)));
+	public Optional<VeiculoDTO> buscarPorId(Long id) {
+		return Optional.of(VeiculoDTO.createVeiculoDTOToVeiculo(repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Veiculo não encotrado para o ID: " + id))) );
 	}
 
 }

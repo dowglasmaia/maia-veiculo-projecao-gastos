@@ -2,12 +2,15 @@ package com.maia.apiveiculos.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maia.apiveiculos.entity.dto.VeiculoNewDTO;
+import com.maia.apiveiculos.exception.ResourceNotFoundException;
 import com.maia.apiveiculos.service.IVeiculoServices;
 import lombok.RequiredArgsConstructor;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -18,6 +21,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import java.util.Optional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -53,6 +58,20 @@ public class VeiculoControllerTest {
                 .andExpect(status().isUnprocessableEntity())
                 .andExpect(jsonPath("erros", Matchers.hasSize(3)));
 
+    }
+
+    @Test
+    @DisplayName("Deve lançar exception para Veiculo inexistente na Base de Dados.")
+    public void obterVeiculoPorIdInexistenteTest() throws Exception {
+       BDDMockito.given(services.buscarPorId(Mockito.anyLong()))
+               .willThrow(new ResourceNotFoundException("Veiculo não encontrado!"));
+
+       MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get(URL_API.concat("/"+1L))
+               .accept(MediaType.APPLICATION_JSON);
+
+        mvc.perform(request)
+                .andExpect(status().isNotFound());
     }
 
 
