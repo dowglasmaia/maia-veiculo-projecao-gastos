@@ -6,9 +6,8 @@ import java.util.Date;
 import lombok.*;
 
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
 @Builder
 public class ExceptionResponse implements Serializable{
 	private static final long serialVersionUID = 1L;
